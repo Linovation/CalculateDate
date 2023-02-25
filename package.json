@@ -19,13 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "scripts": {
-      "start": "react-scripts start",
-      "build": "rm -rf build && npm install --force && react-scripts build",
-      "test": "react-scripts test",
-      "eject": "react-scripts eject"
-    },
-
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
