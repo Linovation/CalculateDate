@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, TextField, Checkbox, FormControlLabel, Button } from '@material-ui/core';
 import { DateRange as DateRangeIcon } from '@material-ui/icons';
-import { differenceInDays, differenceInWeeks, parseISO } from 'date-fns';
+import { differenceInDays, parseISO } from 'date-fns';
 
 function CountdownTimer() {
     const [startDate, setStartDate] = useState('');
