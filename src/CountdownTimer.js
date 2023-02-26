@@ -6,9 +6,10 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function CountdownTimer() {
     const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
+    const [endDate, setEndDate] = useState(new Date().toISOString().substr(0, 10));
     const [includeFirstDay, setIncludeFirstDay] = useState(false);
     const [result, setResult] = useState('');
+    const [days, setDays] = useState('');
 
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
@@ -27,7 +28,10 @@ function CountdownTimer() {
         const end = parseISO(endDate);
         const days = differenceInDays(end, start) + (includeFirstDay ? 1 : 0);
         const weeks = Math.floor(days / 7);
-        setResult(`${days} day${days === 1 ? '' : 's'} (${weeks} week${weeks === 1 ? '' : 's'})`);
+        const remainingDays = days % 7;
+        setDays(`${days} days`)
+        setResult(`${weeks} week${weeks === 1 ? '' : 's'} and ${remainingDays} day${remainingDays === 1 ? '' : 's'}`);
+
     };
 
     return (
@@ -79,6 +83,11 @@ function CountdownTimer() {
             {result && (
                 <Typography variant="h5" component="h2" align="center" style={{ marginTop: 16 }}>
                     {result}
+                </Typography>
+            )}
+            {days && (
+                <Typography variant="h5" component="h2" align="center" style={{ marginTop: 16 }}>
+                    {days}
                 </Typography>
             )}
         </Container>
