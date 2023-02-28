@@ -112,7 +112,7 @@ function CountdownTimer() {
                     {days}
                 </Typography>
             )}
-            <div style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
+            <div style={{ position: 'fixed', bottom: 0, left: 0, backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
                 <Typography variant="body1" align="center" style={{ marginBottom: 16 }}>
                     {quote}
                 </Typography>
