@@ -65,7 +65,7 @@ function CountdownTimer() {
                 Life Calculator
             </Typography>
             <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                     <TextField
                         label="Start Date / Your date of birth"
                         type="date"
@@ -78,7 +78,7 @@ function CountdownTimer() {
                         margin="normal"
                     />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={10}>
                     <TextField
                         label="Target Date"
                         type="date"
@@ -96,18 +96,23 @@ function CountdownTimer() {
                 control={<Checkbox checked={includeFirstDay} onChange={handleCheckboxChange} />}
                 label="Include first day"
             />
-            <Button
-                variant="contained"
-                color="primary"
-                startIcon={<DateRangeIcon />}
-                onClick={handleCalculateButtonClick}
-                disabled={!startDate || !endDate}
-                fullWidth
-                size="large"
-                style={{ marginTop: 16 }}
-            >
-                Calculate the number of days
-            </Button>
+            <Grid>
+                <Grid item xs={10}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        startIcon={<DateRangeIcon />}
+                        onClick={handleCalculateButtonClick}
+                        disabled={!startDate || !endDate}
+                        fullWidth
+                        size="large"
+                        style={{ marginTop: 16 }}
+                    >
+                        Calculate the number of days
+                    </Button>
+                </Grid>
+            </Grid>
+
             {result && (
                 <Typography variant="h5" component="h2" align="center" style={{ marginTop: 16 }}>
                     {result}
@@ -118,7 +123,7 @@ function CountdownTimer() {
                     {days}
                 </Typography>
             )}
-            <div style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
+            <div style={{ position: 'fixed', bottom: 0, left: 0, backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
                 <Typography variant="body1" align="center" style={{ marginBottom: 16 }}>
                     {quote}
                 </Typography>
