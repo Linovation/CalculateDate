@@ -61,12 +61,11 @@ function CountdownTimer() {
                 background: 'linear-gradient(45deg, #2196F3 30%, #4CAF50 90%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                extAlign: 'center'
             }}>
                 Life Calculator
             </Typography>
-            <Grid container spacing={4} style={{ marginTop:'16px'}}>
-                <Grid item xs={10}>
+            <Grid container spacing={4} style={{ marginTop:'16px', justifyContent:'center'}}>
+                <Grid item xs={10} >
                     <TextField
                         label="Start Date / Your date of birth"
                         type="date"
