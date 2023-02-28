@@ -55,13 +55,19 @@ function CountdownTimer() {
 
     return (
         <Container maxWidth="sm" spacing={2}>
-            <Typography variant="h4" component="h1" align="center" gutterBottom>
+            <Typography variant="h3" component="h1" style={{
+                position:'center',
+                fontFamily: 'Montserrat',
+                background: 'linear-gradient(45deg, #2196F3 30%, #4CAF50 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+            }}>
                 Life Calculator
             </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField
-                        label="Start Date"
+                        label="Start Date / Your date of birth"
                         type="date"
                         value={startDate}
                         onChange={handleStartDateChange}
@@ -74,7 +80,7 @@ function CountdownTimer() {
                 </Grid>
                 <Grid item xs={12}>
                     <TextField
-                        label="End Date"
+                        label="Target Date"
                         type="date"
                         value={endDate}
                         onChange={handleEndDateChange}
@@ -112,7 +118,7 @@ function CountdownTimer() {
                     {days}
                 </Typography>
             )}
-            <div style={{ position: 'fixed', bottom: 0, left: 0, backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
+            <div style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
                 <Typography variant="body1" align="center" style={{ marginBottom: 16 }}>
                     {quote}
                 </Typography>
