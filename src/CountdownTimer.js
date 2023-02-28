@@ -54,17 +54,18 @@ function CountdownTimer() {
     };
 
     return (
-        <Container maxWidth="sm" spacing={2}>
+        <Container maxWidth="sm" spacing={4} >
             <Typography variant="h3" component="h1" style={{
                 position:'center',
                 fontFamily: 'Montserrat',
                 background: 'linear-gradient(45deg, #2196F3 30%, #4CAF50 90%)',
                 WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
+                WebkitTextFillColor: 'transparent',
+                extAlign: 'center'
             }}>
                 Life Calculator
             </Typography>
-            <Grid container spacing={2}>
+            <Grid container spacing={4} style={{ marginTop:'16px'}}>
                 <Grid item xs={10}>
                     <TextField
                         label="Start Date / Your date of birth"
@@ -92,7 +93,7 @@ function CountdownTimer() {
                     />
                 </Grid>
             </Grid>
-            <FormControlLabel
+            <FormControlLabel style={{ marginTop: 16 }}
                 control={<Checkbox checked={includeFirstDay} onChange={handleCheckboxChange} />}
                 label="Include first day"
             />
