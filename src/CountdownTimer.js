@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container, Typography, TextField, Checkbox, FormControlLabel, Button, Grid } from '@material-ui/core';
 import { DateRange as DateRangeIcon } from '@material-ui/icons';
 import { differenceInDays, parseISO } from 'date-fns';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 function CountdownTimer() {
+    useEffect(() => {
+        fetchQuote();
+    }, []);
+
+    const fetchQuote = async () => {
+        const response = await axios.get('https://api.quotable.io/random');
+        setQuote(`${response.data.content} — ${response.data.author}`);
+    };
+
+
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState(new Date().toISOString().substr(0, 10));
     const [includeFirstDay, setIncludeFirstDay] = useState(false);
     const [result, setResult] = useState('');
     const [days, setDays] = useState('');
+    const [quote, setQuote] = useState('');
 
     const handleStartDateChange = (event) => {
         setStartDate(event.target.value);
@@ -31,11 +43,21 @@ function CountdownTimer() {
         const remainingDays = days % 7;
         setDays(`${days} days`)
         setResult(`${weeks} week${weeks === 1 ? '' : 's'} and ${remainingDays} day${remainingDays === 1 ? '' : 's'}`);
-
+        axios.get('https://api.quotable.io/random')
+            .then(response => {
+                const { content, author } = response.data;
+                setQuote(`${content} — ${author}`);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     };
 
     return (
         <Container maxWidth="sm" spacing={2}>
+            <Typography variant="h4" component="h1" align="center" gutterBottom>
+                Life Calculator
+            </Typography>
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <TextField
@@ -90,6 +112,11 @@ function CountdownTimer() {
                     {days}
                 </Typography>
             )}
+            <div style={{ position: 'fixed', bottom: 0, left: 0, width: '100%', backgroundColor: '#eee', padding: 16, margin_left:'40px'}}>
+                <Typography variant="body1" align="center" style={{ marginBottom: 16 }}>
+                    {quote}
+                </Typography>
+            </div>
         </Container>
     );
 }

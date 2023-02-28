@@ -22,6 +22,7 @@ function App() {
     return (
         <ThemeProvider theme={theme}>
             <AppContainer>
+                <title>Life calculator</title>
                 <CountdownTimer />
             </AppContainer>
         </ThemeProvider>
